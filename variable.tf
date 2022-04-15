@@ -32,7 +32,15 @@ variable "vm-dev" {
     default = "AP-server-dev"
 }
 
+variable "vm-stg" {
+    default = "AP-server-stg"
+}
+
 /*マネージドディスク*/
 variable "disk_dev" {
     default = "Managed_Disk_dev"
+}
+
+variable "disk_stg" {
+    default = "Managed_Disk_stg"
 }
