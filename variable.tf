@@ -21,3 +21,13 @@ variable "location" {
 variable "vnet" {
     default = "AP-vnet"
 }
+
+/*ExpressRoute Gateway*/
+variable "ERGW" {
+    default = "AP-ERGW"
+}
+
+/*仮想マシン*/
+variable "vm-dev" {
+    default = "AP-server-dev"
+}
