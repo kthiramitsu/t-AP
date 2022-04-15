@@ -31,3 +31,8 @@ variable "ERGW" {
 variable "vm-dev" {
     default = "AP-server-dev"
 }
+
+/*マネージドディスク*/
+variable "disk_dev" {
+    default = "Managed_Disk_dev"
+}

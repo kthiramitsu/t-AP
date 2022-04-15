@@ -44,7 +44,7 @@ resource "azurerm_windows_virtual_machine" "vm-dev" {
   admin_username      = "adminuser"
   admin_password      = "Ne0sk.2613!$"
   network_interface_ids = [azurerm_network_interface.vm-dev-nic.id]
-
+ 
   os_disk {
     caching = "ReadWrite"
     storage_account_type = "Premium_LRS"
@@ -57,4 +57,37 @@ resource "azurerm_windows_virtual_machine" "vm-dev" {
     version = "latest"
   }
 
+}
+
+/*Managed OSディスク*/
+resource "azurerm_managed_disk" "disk-dev-1" {
+  name = "${var.disk_dev}-01"
+  location = var.location
+  resource_group_name = var.rg
+  storage_account_type = "Premium_LRS"
+  create_option = "Empty"
+  disk_size_gb = "128"
+}
+
+resource "azurerm_managed_disk" "disk-dev-2" {
+  name = "${var.disk_dev}-02"
+  location = var.location
+  resource_group_name = var.rg
+  storage_account_type = "Premium_LRS"
+  create_option = "Empty"
+  disk_size_gb = "128"
+}
+
+resource "azurerm_virtual_machine_data_disk_attachment" "dev_1" {
+  managed_disk_id    = azurerm_managed_disk.disk-dev-1.id
+  virtual_machine_id = azurerm_windows_virtual_machine.vm-dev.id
+  lun                = "0"
+  caching            = "ReadWrite"
+}
+
+resource "azurerm_virtual_machine_data_disk_attachment" "dev_2" {
+  managed_disk_id    = azurerm_managed_disk.disk-dev-2.id
+  virtual_machine_id = azurerm_windows_virtual_machine.vm-dev.id
+  lun                = "1"
+  caching            = "ReadWrite"
 }
