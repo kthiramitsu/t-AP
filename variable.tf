@@ -1,7 +1,23 @@
 /*認証基盤*/
-variable "subscription_id" {}
-variable "tenant_id" {}
+variable "subscription_id" {
+    default = "5724b903-4538-4a5e-a901-8800185b5788"
+}
+
+variable "tenant_id" {
+    default = "67acf48f-1398-464d-9961-1b3238bd11a2"
+}
+
 
 /*リソースグループ*/
-variable "rg" {}
-variable "location" {}
+variable "rg" {
+    default = "AP-kthiramitsu"
+}
+
+variable "location" {
+    default = "Japanwest"
+}
+
+/*Vnet*/
+variable "vnet" {
+    default = "AP-vnet"
+}
