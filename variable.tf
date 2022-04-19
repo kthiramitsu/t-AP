@@ -44,3 +44,8 @@ variable "disk_dev" {
 variable "disk_stg" {
     default = "Managed_Disk_stg"
 }
+
+/*コンテナー*/
+variable "vault" {
+    default = "vault"
+}
