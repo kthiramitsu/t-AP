@@ -49,3 +49,8 @@ variable "disk_stg" {
 variable "vault" {
     default = "vault"
 }
+
+/*Automationアカウント*/
+variable "automation" {
+    default = "AP-Auto"
+}
